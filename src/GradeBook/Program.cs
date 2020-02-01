@@ -25,9 +25,17 @@ namespace GradeBook
                     var grade = double.Parse(input);
                     book.AddGrade(grade);
                 }
-                catch (ArgumentException ex)
+                catch (FormatException ex)
                 {
-                    Console.WriteLine("argument exception");
+                    Console.WriteLine(ex.Message);
+                }
+                catch (ArgumentException ex) 
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("**");
                 }
             }
 

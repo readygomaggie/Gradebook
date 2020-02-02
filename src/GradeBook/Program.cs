@@ -41,6 +41,7 @@ namespace GradeBook
 
             var stats = book.GetStatistics();
 
+            Console.WriteLine($"For the book name {book.Name}");
             Console.WriteLine($"Average grade is {stats.Average:N1}");
             Console.WriteLine($"Highest grade is {stats.High}");
             Console.WriteLine($"Lowest grade is {stats.Low}");

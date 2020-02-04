@@ -48,7 +48,7 @@ namespace GradeBook.Tests
         public void LetterGradesConvertToDoubles()
         {
             var book = new Book("");
-            book.AddLetterGrade('B');
+            book.AddGrade('B');
 
             Assert.Contains(80.0, book.GetGrades());
 

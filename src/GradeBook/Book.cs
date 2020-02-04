@@ -6,7 +6,11 @@ namespace GradeBook {
     public class Book
     {
         private List<double> grades;
-        public string Name;
+        public string Name 
+        {
+            get;
+            set;
+        }
 
         public Book(string name)
         {
@@ -19,15 +23,19 @@ namespace GradeBook {
             if (grade >= 0 && grade <= 100)
             {
                 grades.Add(grade);
+                if (GradeAdded != null )
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else 
             {
-                throw new ArgumentException($"Invalid {nameof(grade)}");
+                Console.WriteLine($"Invalid {nameof(grade)}");
             }
             
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch (letter)
             {
@@ -52,6 +60,7 @@ namespace GradeBook {
             }
         }
 
+        public event GradeAddedEventHandler GradeAdded;
         public Statistics GetStatistics()
         {
             

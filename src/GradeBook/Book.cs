@@ -23,6 +23,10 @@ namespace GradeBook {
             if (grade >= 0 && grade <= 100)
             {
                 grades.Add(grade);
+                if (GradeAdded != null )
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else 
             {
@@ -56,6 +60,7 @@ namespace GradeBook {
             }
         }
 
+        public event GradeAddedEventHandler GradeAdded;
         public Statistics GetStatistics()
         {
             
